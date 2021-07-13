@@ -1,7 +1,9 @@
 {
+  "name": "editaro2",
+  "version": "1.0.0",
   "private": true,
   "main": "main/index.js",
-  "productName": "ElectronTypescriptNext",
+  "productName": "Editaro2",
   "scripts": {
     "clean": "rimraf dist main renderer/out renderer/.next",
     "dev": "npm run build-electron && electron .",
@@ -30,6 +32,9 @@
   },
   "build": {
     "asar": true,
+    "mac": {
+      "icon": "app.icns"
+    },
     "files": [
       "main",
       "renderer/out"
