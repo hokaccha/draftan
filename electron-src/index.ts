@@ -14,6 +14,7 @@ app.on("ready", async () => {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    opacity: 0.8,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: false,

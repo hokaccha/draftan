@@ -1,9 +1,9 @@
 {
-  "name": "editaro2",
+  "name": "draftan",
   "version": "1.0.0",
   "private": true,
   "main": "main/index.js",
-  "productName": "Editaro2",
+  "productName": "Draftan",
   "scripts": {
     "clean": "rimraf dist main renderer/out renderer/.next",
     "dev": "npm run build-electron && electron .",
