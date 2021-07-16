@@ -1,12 +1,24 @@
+:root {
+  --header-height: 35px;
+  --toolbar-height: 30px;
+}
+
 body {
   margin: 0;
   padding: 0;
+  background-color: #1E1E1E;
+}
+
+#header {
+  height: var(--header-height);
+  background-color: #323233;
+  -webkit-app-region: drag
 }
 
 #editor .CodeMirror {
   font-family: Monaco, monospace;
   font-size: 16px;
-  height: calc(100vh - 30px);
+  height: calc(100vh - var(--header-height) - var(--toolbar-height));
   padding: 4px;
   box-sizing: border-box;
   line-height: 1.6;
@@ -19,7 +31,7 @@ body {
   bottom: 0;
   width: 100%;
   font-size: 14px;
-  height: 30px;
+  height: var(--toolbar-height);
   padding: 4px 8px;
   box-sizing: border-box;
   text-align: right;

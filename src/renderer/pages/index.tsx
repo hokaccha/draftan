@@ -30,10 +30,13 @@ const IndexPage = () => {
     lineWrapping: true,
   };
   return (
-    <div id="editor">
-      <CodeMirror options={options}></CodeMirror>
-      <div id="toolbar">
-        <span onClick={handleClickMode}>{mode}</span>
+    <div id="layout">
+      <header id="header"></header>
+      <div id="editor">
+        <CodeMirror options={options}></CodeMirror>
+        <div id="toolbar">
+          <span onClick={handleClickMode}>{mode}</span>
+        </div>
       </div>
     </div>
   );
