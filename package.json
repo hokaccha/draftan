@@ -2,17 +2,15 @@
   "name": "draftan",
   "version": "1.0.0",
   "private": true,
-  "main": "main/index.js",
+  "main": "out/main/index.js",
   "productName": "Draftan",
   "scripts": {
-    "clean": "rimraf dist main renderer/out renderer/.next",
-    "dev": "npm run build-electron && electron .",
-    "build-renderer": "next build renderer && next export renderer",
-    "build-electron": "tsc -p electron-src",
-    "build": "npm run build-renderer && npm run build-electron",
-    "pack-app": "npm run build && electron-builder --dir",
-    "dist": "npm run build && electron-builder",
-    "type-check": "tsc"
+    "clean": "rm -rf dist out",
+    "dev": "yarn run build:electron && electron .",
+    "build": "yarn run build:renderer && yarn run build:electron",
+    "build:renderer": "next build src/renderer && next export src/renderer -o out/renderer/out",
+    "build:electron": "tsc -p src/main",
+    "dist": "yarn run build && electron-builder"
   },
   "dependencies": {
     "codemirror": "^5.62.0",
@@ -30,7 +28,6 @@
     "electron": "^13",
     "electron-builder": "^22.9.1",
     "next": "latest",
-    "rimraf": "^3.0.0",
     "typescript": "^4.0.5"
   },
   "build": {
@@ -39,8 +36,7 @@
       "icon": "build/icon.png"
     },
     "files": [
-      "main",
-      "renderer/out"
+      "out"
     ]
   }
 }

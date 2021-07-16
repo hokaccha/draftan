@@ -9,11 +9,10 @@
 /coverage
 
 # next.js
-/renderer/.next/
-/renderer/out/
+/src/renderer/.next/
 
 # production
-/main
+/out
 /dist
 
 # misc
