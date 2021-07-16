@@ -45,6 +45,10 @@ body {
   margin-left: 10px;
 }
 
+#toolbar .select option {
+  white-space: pre;
+}
+
 .cm-s-draftan-dark span.cm-meta { color: #569cd6; }
 .cm-s-draftan-dark span.cm-number { color: #b5cea8; }
 .cm-s-draftan-dark span.cm-keyword { line-height: 1em; font-weight: bold; color: #569cd6; }
