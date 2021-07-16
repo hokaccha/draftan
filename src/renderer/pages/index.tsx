@@ -5,21 +5,29 @@ import "codemirror/lib/codemirror.css";
 import "codemirror/addon/dialog/dialog.css";
 
 type Mode = {
-  label: string;
   name: string;
+  value: string;
 };
 
 const modes: Mode[] = [
-  { label: "Markdown", name: "markdown" },
-  { label: "JavaScript", name: "javascript" },
-  { label: "TypeScript", name: "text/typescript" },
-  { label: "JSON", name: "application/json" },
-  { label: "SQL", name: "sql" },
-  { label: "Ruby", name: "ruby" },
+  { name: "Markdown", value: "markdown" },
+  { name: "JavaScript", value: "javascript" },
+  { name: "TypeScript", value: "text/typescript" },
+  { name: "JSON", value: "application/json" },
+  { name: "SQL", value: "sql" },
+  { name: "Ruby", value: "ruby" },
 ];
 
-const keymaps = ["default", "vim"] as const;
-type Keymap = typeof keymaps[number];
+function findMode(name: string | null): Mode {
+  return modes.find((mode) => mode.name === name) || modes[0];
+}
+
+const keymaps = ["default", "vim"];
+
+function findKeymap(keymap: string | null): string {
+  if (keymap === null) return keymaps[0];
+  return keymaps.includes(keymap) ? keymap : keymaps[0];
+}
 
 const CodeMirror = dynamic(
   async () => {
@@ -42,24 +50,31 @@ const CodeMirror = dynamic(
   { ssr: false }
 );
 
+function getItem(key: string): string | null {
+  if (typeof localStorage === "undefined") return null;
+  return localStorage.getItem(key);
+}
+
 const IndexPage = () => {
-  const [keymap, setKeymap] = useState<Keymap>(keymaps[0]);
-  const [mode, setMode] = useState<Mode>(modes[0]);
+  const [keymap, setKeymap] = useState(findKeymap(getItem("draftan:keymap")));
+  const [mode, setMode] = useState<Mode>(findMode(getItem("draftan:mode")));
   const handleKeymapChange = (event: React.FormEvent) => {
     const { target } = event;
     if (!(target instanceof HTMLSelectElement)) return;
     const keymap =
       keymaps.find((keymap) => keymap === target.value) || keymaps[0];
     setKeymap(keymap);
+    localStorage.setItem("draftan:keymap", keymap);
   };
   const handleModeChange = (event: React.FormEvent) => {
     const { target } = event;
     if (!(target instanceof HTMLSelectElement)) return;
     const mode = modes.find((mode) => mode.name === target.value) || modes[0];
     setMode(mode);
+    localStorage.setItem("draftan:mode", mode.name);
   };
   const options: EditorConfiguration = {
-    mode: mode.name,
+    mode: mode.value,
     keyMap: keymap,
     theme: "draftan-dark",
     lineWrapping: true,
@@ -70,17 +85,25 @@ const IndexPage = () => {
       <div id="editor">
         <CodeMirror options={options}></CodeMirror>
         <div id="toolbar">
-          <select onChange={handleKeymapChange} className="select">
+          <select
+            onChange={handleKeymapChange}
+            className="select"
+            defaultValue={keymap}
+          >
             {keymaps.map((keymap) => (
               <option key={keymap} value={keymap}>
                 {keymap}
               </option>
             ))}
           </select>
-          <select onChange={handleModeChange} className="select">
+          <select
+            onChange={handleModeChange}
+            className="select"
+            defaultValue={mode.name}
+          >
             {modes.map((mode) => (
               <option key={mode.name} value={mode.name}>
-                {mode.label}
+                {mode.name}
               </option>
             ))}
           </select>
