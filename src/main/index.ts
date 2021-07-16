@@ -1,8 +1,4 @@
-// Native
 import { join } from "path";
-import { format } from "url";
-
-// Packages
 import { BrowserWindow, app } from "electron";
 import isDev from "electron-is-dev";
 import prepareNext from "electron-next";
@@ -27,11 +23,7 @@ app.on("ready", async () => {
 
   const url = isDev
     ? "http://localhost:8000/"
-    : format({
-        pathname: join(__dirname, "../renderer/out/index.html"),
-        protocol: "file:",
-        slashes: true,
-      });
+    : `file://${join(__dirname, "../renderer/out/index.html")}`;
 
   mainWindow.loadURL(url);
 });
