@@ -1,13 +1,16 @@
-import dynamic from "next/dynamic";
-import "codemirror/lib/codemirror.css";
-import type { EditorConfiguration } from "codemirror";
 import { useState } from "react";
+import dynamic from "next/dynamic";
+import type { EditorConfiguration } from "codemirror";
+import "codemirror/lib/codemirror.css";
+import "codemirror/addon/dialog/dialog.css";
 
 const CodeMirror = dynamic(
   async () => {
-    await import("codemirror/mode/markdown/markdown");
-    await import("codemirror/mode/javascript/javascript");
-    await import("codemirror/keymap/vim");
+    await Promise.all([
+      import("codemirror/mode/markdown/markdown"),
+      import("codemirror/mode/javascript/javascript"),
+      import("codemirror/keymap/vim"),
+    ]);
 
     const codemirror = await import("react-codemirror2");
     return codemirror.UnControlled;
@@ -22,8 +25,9 @@ const IndexPage = () => {
   };
   const options: EditorConfiguration = {
     mode,
-    theme: "vscode-dark",
+    theme: "draftan-dark",
     keyMap: "vim",
+    lineWrapping: true,
   };
   return (
     <div id="editor">
