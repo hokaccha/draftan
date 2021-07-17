@@ -1,12 +1,12 @@
 import dynamic from "next/dynamic";
 
-const Editor = dynamic(
-  async () => (await import("../components/Editor")).Editor,
+const DraftanEditor = dynamic(
+  async () => (await import("../components/DraftanEditor")).DraftanEditor,
   { ssr: false }
 );
 
 const IndexPage = () => {
-  return <Editor></Editor>;
+  return <DraftanEditor />;
 };
 
 export default IndexPage;

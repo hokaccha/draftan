@@ -43,10 +43,27 @@ body {
   border: none;
   outline: none;
   margin-left: 10px;
+  cursor: pointer;
+}
+
+#toolbar .select:hover {
+  opacity: 0.8;
 }
 
 #toolbar .select option {
   white-space: pre;
+}
+
+#dialog {
+  padding: 8px 12px;
+  color: #FFF;
+  background-color: #007b00;
+  position: fixed;
+  bottom: 40px;
+  right: 10px;
+  font-size: 12px;
+  border-radius: 4px;
+  font-weight: bold;
 }
 
 .cm-s-draftan-dark span.cm-meta { color: #569cd6; }

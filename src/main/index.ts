@@ -2,9 +2,12 @@ import { join } from "path";
 import { BrowserWindow, app } from "electron";
 import isDev from "electron-is-dev";
 import prepareNext from "electron-next";
+import { initMenu } from "./menu";
 
 // Prepare the renderer once the app is ready
 app.on("ready", async () => {
+  initMenu();
+
   await prepareNext({
     development: join(__dirname, "../../src/renderer"),
     production: join(__dirname, "../renderer"),

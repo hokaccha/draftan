@@ -1,6 +1,7 @@
-import { FC, useState } from "react";
-import type { EditorConfiguration } from "codemirror";
+import { FC, useEffect, useMemo, useRef, useState } from "react";
 import { UnControlled as CodeMirror } from "react-codemirror2";
+import type { EditorConfiguration, Editor } from "codemirror";
+import type { IUnControlledCodeMirror } from "react-codemirror2";
 
 import "codemirror/lib/codemirror.css";
 import "codemirror/addon/dialog/dialog.css";
@@ -40,9 +41,40 @@ function getItem(key: string): string | null {
   return localStorage.getItem(key);
 }
 
-export const Editor: FC = () => {
-  const [keymap, setKeymap] = useState(findKeymap(getItem("draftan:keymap")));
-  const [mode, setMode] = useState<Mode>(findMode(getItem("draftan:mode")));
+export const DraftanEditor: FC = () => {
+  useEffect(() => {
+    global.ipcRenderer.addListener("copy", () => {
+      navigator.clipboard.writeText(
+        localStorage.getItem("draftan:content") || ""
+      );
+      setShowCopyDialog(true);
+      setTimeout(() => setShowCopyDialog(false), 1000);
+    });
+    global.ipcRenderer.addListener("clear", () => {
+      if (editorRef.current === null) return;
+      const cm = editorRef.current;
+      cm.setValue("");
+      cm.focus();
+    });
+  }, []);
+  const content = useMemo(
+    () => localStorage.getItem("draftan:content") || "",
+    []
+  );
+  const [keymap, setKeymap] = useState(() =>
+    findKeymap(getItem("draftan:keymap"))
+  );
+  const [mode, setMode] = useState<Mode>(() =>
+    findMode(getItem("draftan:mode"))
+  );
+  const [showCopyDialog, setShowCopyDialog] = useState(false);
+  const handleUpdateEditor: IUnControlledCodeMirror["onChange"] = (
+    _editor,
+    _data,
+    value
+  ) => {
+    localStorage.setItem("draftan:content", value);
+  };
   const handleKeymapChange = (event: React.FormEvent) => {
     const { target } = event;
     if (!(target instanceof HTMLSelectElement)) return;
@@ -64,11 +96,17 @@ export const Editor: FC = () => {
     theme: "draftan-dark",
     lineWrapping: true,
   };
+  const editorRef = useRef<Editor | null>(null);
   return (
     <div id="layout">
       <header id="header"></header>
       <div id="editor">
-        <CodeMirror options={options}></CodeMirror>
+        <CodeMirror
+          value={content}
+          onChange={handleUpdateEditor}
+          options={options}
+          editorDidMount={(editor) => (editorRef.current = editor)}
+        ></CodeMirror>
         <div id="toolbar">
           <select
             onChange={handleKeymapChange}
@@ -94,6 +132,7 @@ export const Editor: FC = () => {
           </select>
         </div>
       </div>
+      {showCopyDialog && <div id="dialog">Copied</div>}
     </div>
   );
 };
