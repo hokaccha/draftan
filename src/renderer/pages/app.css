@@ -9,13 +9,7 @@ body {
   background-color: #1E1E1E;
 }
 
-#header {
-  height: var(--header-height);
-  background-color: #323233;
-  -webkit-app-region: drag
-}
-
-#editor .CodeMirror {
+.cm-s-draftan.CodeMirror {
   font-family: Monaco, monospace;
   font-size: 16px;
   height: calc(100vh - var(--header-height) - var(--toolbar-height));
@@ -23,74 +17,31 @@ body {
   box-sizing: border-box;
   line-height: 1.6;
 }
-
-#toolbar {
-  background-color: #5E2676;
-  color: #FFFFFF;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  font-size: 14px;
-  height: var(--toolbar-height);
-  padding: 4px 8px;
-  box-sizing: border-box;
-  text-align: right;
-}
-
-#toolbar .select {
-  background-color: transparent;
-  color: #FFF;
-  border: none;
-  outline: none;
-  margin-left: 10px;
-  cursor: pointer;
-}
-
-#toolbar .select:hover {
-  opacity: 0.8;
-}
-
-#toolbar .select option {
-  white-space: pre;
-}
-
-#dialog {
-  padding: 8px 12px;
-  color: #FFF;
-  background-color: #007b00;
-  position: fixed;
-  bottom: 40px;
-  right: 10px;
-  font-size: 12px;
-  border-radius: 4px;
-  font-weight: bold;
-}
-
-.cm-s-draftan-dark span.cm-meta { color: #569cd6; }
-.cm-s-draftan-dark span.cm-number { color: #b5cea8; }
-.cm-s-draftan-dark span.cm-keyword { line-height: 1em; font-weight: bold; color: #569cd6; }
-.cm-s-draftan-dark span.cm-def { color:#9cdcfe; }
-.cm-s-draftan-dark span.cm-variable { color: #ddd6a3; }
-.cm-s-draftan-dark span.cm-variable-2 { color: #9cdcfe; }
-.cm-s-draftan-dark span.cm-variable-3,
-.cm-s-draftan-dark span.cm-type { color: #A9B7C6; }
-.cm-s-draftan-dark span.cm-property { color: #9cdcfe; }
-.cm-s-draftan-dark span.cm-operator { color: #d4d4d4; }
-.cm-s-draftan-dark span.cm-string { color: #ce9178; }
-.cm-s-draftan-dark span.cm-string-2 { color: #6A8759; }
-.cm-s-draftan-dark span.cm-comment { color: #6A9955; }
-.cm-s-draftan-dark span.cm-link { color: #287BDE; }
-.cm-s-draftan-dark span.cm-atom { color: #569cd6; }
-.cm-s-draftan-dark span.cm-error { color: #BC3F3C; }
-.cm-s-draftan-dark span.cm-tag { color: #569cd6; }
-.cm-s-draftan-dark span.cm-attribute { color: #9cdcfe; }
-.cm-s-draftan-dark span.cm-qualifier { color: #d7ba7d; }
-.cm-s-draftan-dark span.cm-bracket { color: #808080; }
-.cm-s-draftan-dark.CodeMirror { background: #1e1e1e; color: #e9e9e9; }
-.cm-s-draftan-dark .CodeMirror-cursor { border-left: 1px solid #bebebe; }
-.cm-s-draftan-dark div.CodeMirror-selected { background: #1e496c; }
-.cm-s-draftan-dark .CodeMirror-gutters { background: #252526; border-right: 1px solid grey; color: #606366; }
-.cm-s-draftan-dark span.cm-builtin { color: #A9B7C6; }
-.cm-s-draftan-dark .CodeMirror-matchingbracket { background-color: #3b514d; color: yellow !important; }
-.cm-s-draftan-dark.cm-fat-cursor .CodeMirror-cursor,
-.cm-s-draftan-dark .cm-animate-fat-cursor { background-color: #999999; opacity: 0.8; }
+.cm-s-draftan span.cm-meta { color: #569cd6; }
+.cm-s-draftan span.cm-number { color: #b5cea8; }
+.cm-s-draftan span.cm-keyword { line-height: 1em; font-weight: bold; color: #569cd6; }
+.cm-s-draftan span.cm-def { color:#9cdcfe; }
+.cm-s-draftan span.cm-variable { color: #ddd6a3; }
+.cm-s-draftan span.cm-variable-2 { color: #9cdcfe; }
+.cm-s-draftan span.cm-variable-3,
+.cm-s-draftan span.cm-type { color: #A9B7C6; }
+.cm-s-draftan span.cm-property { color: #9cdcfe; }
+.cm-s-draftan span.cm-operator { color: #d4d4d4; }
+.cm-s-draftan span.cm-string { color: #ce9178; }
+.cm-s-draftan span.cm-string-2 { color: #6A8759; }
+.cm-s-draftan span.cm-comment { color: #6A9955; }
+.cm-s-draftan span.cm-link { color: #287BDE; }
+.cm-s-draftan span.cm-atom { color: #569cd6; }
+.cm-s-draftan span.cm-error { color: #BC3F3C; }
+.cm-s-draftan span.cm-tag { color: #569cd6; }
+.cm-s-draftan span.cm-attribute { color: #9cdcfe; }
+.cm-s-draftan span.cm-qualifier { color: #d7ba7d; }
+.cm-s-draftan span.cm-bracket { color: #808080; }
+.cm-s-draftan.CodeMirror { background: #1e1e1e; color: #e9e9e9; }
+.cm-s-draftan .CodeMirror-cursor { border-left: 1px solid #bebebe; }
+.cm-s-draftan div.CodeMirror-selected { background: #1e496c; }
+.cm-s-draftan .CodeMirror-gutters { background: #252526; border-right: 1px solid grey; color: #606366; }
+.cm-s-draftan span.cm-builtin { color: #A9B7C6; }
+.cm-s-draftan .CodeMirror-matchingbracket { background-color: #3b514d; color: yellow !important; }
+.cm-s-draftan.cm-fat-cursor .CodeMirror-cursor,
+.cm-s-draftan .cm-animate-fat-cursor { background-color: #999999; opacity: 0.8; }

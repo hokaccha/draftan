@@ -1,0 +1,25 @@
+.toolbar {
+  background-color: #5E2676;
+  color: #FFFFFF;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px;
+  height: var(--toolbar-height);
+  padding: 4px 8px;
+  box-sizing: border-box;
+  text-align: right;
+}
+
+.select {
+  background-color: transparent;
+  color: #FFF;
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.select:hover {
+  opacity: 0.8;
+}

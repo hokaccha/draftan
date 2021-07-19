@@ -1,0 +1,5 @@
+.header {
+  height: var(--header-height);
+  background-color: #323233;
+  -webkit-app-region: drag
+}
