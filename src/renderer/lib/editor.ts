@@ -34,7 +34,7 @@ export function useIpcHandler(editorRef: EditorRef): { hasCopied: boolean } {
       cm.setValue("");
       cm.focus();
     });
-  }, []);
+  }, [editorRef]);
 
   return { hasCopied };
 }

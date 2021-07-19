@@ -23,9 +23,12 @@ export const Editor: FC<Props> = ({ mode, keymap }) => {
   const editorRef = useEditorRef();
   const { content, setContent } = useEditorContent();
   const { hasCopied } = useIpcHandler(editorRef);
-  const handleUpdateEditor: ChangeCodeMirror = useCallback((_editor, _data, value) => {
-    setContent(value);
-  }, []);
+  const handleUpdateEditor: ChangeCodeMirror = useCallback(
+    (_editor, _data, value) => {
+      setContent(value);
+    },
+    [setContent]
+  );
   const options: EditorConfiguration = useMemo(
     () => ({
       mode: mode.value,
