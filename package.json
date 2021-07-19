@@ -11,7 +11,8 @@
     "build:renderer": "next build src/renderer && next export src/renderer -o out/renderer/out",
     "build:electron": "tsc -p src/main",
     "dist": "yarn run build && electron-builder",
-    "lint": "eslint . --max-warnings 0"
+    "lint": "eslint . --max-warnings 0 && prettier --check .",
+    "format": "eslint --fix . && prettier --write ."
   },
   "dependencies": {
     "codemirror": "^5.62.0",

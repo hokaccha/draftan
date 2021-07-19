@@ -30,11 +30,7 @@ const template: MenuItemConstructorOptions[] = [
   },
   {
     label: "View",
-    submenu: [
-      { role: "reload" },
-      { role: "togglefullscreen" },
-      { role: "toggleDevTools" },
-    ],
+    submenu: [{ role: "reload" }, { role: "togglefullscreen" }, { role: "toggleDevTools" }],
   },
   {
     label: "Window",
