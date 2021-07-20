@@ -38,3 +38,4 @@ rules:
   "@typescript-eslint/explicit-module-boundary-types": off
   "@typescript-eslint/consistent-type-imports": error
   import/order: [error, { alphabetize: { order: asc } }]
+  import/no-unresolved: off
