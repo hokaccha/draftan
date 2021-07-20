@@ -1,6 +1,6 @@
+import type { Editor } from "codemirror";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { MutableRefObject } from "react";
-import type { Editor } from "codemirror";
 
 const STORAGE_KEY = "draftan:content";
 

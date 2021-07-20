@@ -1,9 +1,9 @@
-import { keymaps } from "../lib/keymap";
-import { modes } from "../lib/mode";
-import styles from "./ToolBar.module.css";
 import type { FC, ChangeEvent } from "react";
+import { keymaps } from "../lib/keymap";
 import type { Keymap } from "../lib/keymap";
+import { modes } from "../lib/mode";
 import type { Mode } from "../lib/mode";
+import styles from "./ToolBar.module.css";
 
 type Props = {
   mode: Mode;

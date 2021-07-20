@@ -1,9 +1,9 @@
+import type { FC } from "react";
+import { useKeymap } from "../lib/keymap";
+import { useMode } from "../lib/mode";
 import { Editor } from "./Editor";
 import { Header } from "./Header";
 import { ToolBar } from "./ToolBar";
-import { useKeymap } from "../lib/keymap";
-import { useMode } from "../lib/mode";
-import type { FC } from "react";
 
 export const App: FC = () => {
   const { keymap, setKeymap } = useKeymap();

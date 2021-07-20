@@ -1,12 +1,12 @@
-import { UnControlled as CodeMirror } from "react-codemirror2";
-import { useEditorRef, useEditorContent, useIpcHandler } from "../lib/editor";
-import { Keymap } from "../lib/keymap";
-import { Mode } from "../lib/mode";
-import styles from "./Editor.module.css";
-import { useCallback, useMemo } from "react";
-import type { FC } from "react";
 import type { EditorConfiguration } from "codemirror";
+import type { FC } from "react";
+import { useCallback, useMemo } from "react";
+import { UnControlled as CodeMirror } from "react-codemirror2";
 import type { IUnControlledCodeMirror } from "react-codemirror2";
+import { useEditorRef, useEditorContent, useIpcHandler } from "../lib/editor";
+import type { Keymap } from "../lib/keymap";
+import type { Mode } from "../lib/mode";
+import styles from "./Editor.module.css";
 import "codemirror/lib/codemirror.css";
 import "codemirror/addon/dialog/dialog.css";
 
