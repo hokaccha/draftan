@@ -23,12 +23,12 @@ export function useIpcHandler(editorRef: EditorRef): { hasCopied: boolean } {
   const [hasCopied, setHasCopied] = useState(false);
 
   useEffect(() => {
-    global.ipcRenderer.addListener("copy", () => {
+    window.ipcRenderer.addListener("copy", () => {
       navigator.clipboard.writeText(localStorage.getItem(STORAGE_KEY) || "");
       setHasCopied(true);
       setTimeout(() => setHasCopied(false), 1000);
     });
-    global.ipcRenderer.addListener("clear", () => {
+    window.ipcRenderer.addListener("clear", () => {
       if (editorRef.current === null) return;
       const cm = editorRef.current;
       cm.setValue("");
