@@ -1,5 +1,5 @@
 import type { Editor } from "codemirror";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef } from "react";
 import type { MutableRefObject } from "react";
 
 const STORAGE_KEY = "draftan:content";
@@ -19,15 +19,8 @@ export function useEditorContent(): { content: string; setContent: (content: str
   return { content, setContent };
 }
 
-export function useIpcHandler(editorRef: EditorRef): { hasCopied: boolean } {
-  const [hasCopied, setHasCopied] = useState(false);
-
+export function useIpcHandler(editorRef: EditorRef): void {
   useEffect(() => {
-    window.ipcRenderer.addListener("copy", () => {
-      navigator.clipboard.writeText(localStorage.getItem(STORAGE_KEY) || "");
-      setHasCopied(true);
-      setTimeout(() => setHasCopied(false), 1000);
-    });
     window.ipcRenderer.addListener("clear", () => {
       if (editorRef.current === null) return;
       const cm = editorRef.current;
@@ -35,6 +28,4 @@ export function useIpcHandler(editorRef: EditorRef): { hasCopied: boolean } {
       cm.focus();
     });
   }, [editorRef]);
-
-  return { hasCopied };
 }

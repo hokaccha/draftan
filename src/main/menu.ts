@@ -20,13 +20,6 @@ const template: MenuItemConstructorOptions[] = [
       { role: "delete" },
       { role: "selectAll" },
       {
-        label: "Copy All",
-        accelerator: "CmdOrCtrl+Shift+C",
-        click(_item, focusedWindow): void {
-          focusedWindow?.webContents.send("copy");
-        },
-      },
-      {
         label: "Clear",
         accelerator: "CmdOrCtrl+L",
         click(_item, focusedWindow): void {
