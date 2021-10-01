@@ -2,7 +2,7 @@
 
 Draftan is a text editor for drafts only.
 
-![image](https://user-images.githubusercontent.com/39471/130089472-b51616e5-daac-4386-baa3-389e038f1304.png)
+![image](https://user-images.githubusercontent.com/39471/135556599-ebb25f4a-1795-4e23-9051-ae4f4bbcb6fa.png)
 
 ## Development
 
