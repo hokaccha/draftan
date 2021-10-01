@@ -6,7 +6,7 @@ import type { IUnControlledCodeMirror } from "react-codemirror2";
 import styles from "./Editor.module.css";
 import { useEditorRef, useEditorContent, useIpcHandler } from "~/lib/editor";
 import "codemirror/lib/codemirror.css";
-import "codemirror/addon/dialog/dialog.css";
+import "codemirror/mode/markdown/markdown";
 
 const theme = "draftan";
 
@@ -23,6 +23,7 @@ export const Editor: FC = () => {
   );
   const options: EditorConfiguration = {
     theme,
+    mode: "markdown",
     lineWrapping: true,
   };
 
