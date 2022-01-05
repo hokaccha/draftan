@@ -3,7 +3,6 @@ import type { FC } from "react";
 import { useCallback } from "react";
 import { UnControlled as CodeMirror } from "react-codemirror2";
 import type { IUnControlledCodeMirror } from "react-codemirror2";
-import styles from "./Editor.module.css";
 import { useEditorRef, useEditorContent, useIpcHandler } from "~/lib/editor";
 import "codemirror/lib/codemirror.css";
 import "codemirror/mode/markdown/markdown";
@@ -30,7 +29,7 @@ export const Editor: FC = () => {
   useIpcHandler(editorRef);
 
   return (
-    <div className={styles.editor}>
+    <div>
       <CodeMirror
         value={content}
         onChange={handleUpdateEditor}
