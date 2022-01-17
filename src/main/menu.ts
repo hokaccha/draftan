@@ -40,6 +40,14 @@ const template: MenuItemConstructorOptions[] = [
       { role: "zoomOut" },
       { type: "separator" },
       { role: "togglefullscreen" },
+      { type: "separator" },
+      {
+        label: "Toggle Counter",
+        accelerator: "CmdOrCtrl+Shift+C",
+        click(_item, focusedWindow): void {
+          focusedWindow?.webContents.send("toggleCounter");
+        },
+      },
     ],
   },
   {

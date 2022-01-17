@@ -1,5 +1,5 @@
 import type { Editor } from "codemirror";
-import { useCallback, useEffect, useMemo, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { MutableRefObject } from "react";
 
 const STORAGE_KEY = "draftan:content";
@@ -28,4 +28,16 @@ export function useIpcHandler(editorRef: EditorRef): void {
       cm.focus();
     });
   }, [editorRef]);
+}
+
+export function useCounterEnabled(): boolean {
+  const [enabled, setEnabled] = useState(false);
+
+  useEffect(() => {
+    window.ipcRenderer.addListener("toggleCounter", () => {
+      setEnabled((current) => !current);
+    });
+  }, []);
+
+  return enabled;
 }
