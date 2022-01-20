@@ -16,91 +16,32 @@ body {
   padding: 4px;
   box-sizing: border-box;
   line-height: 1.6;
-}
-.cm-s-draftan span.cm-meta {
-  color: #569cd6;
-}
-.cm-s-draftan span.cm-number {
-  color: #b5cea8;
-}
-.cm-s-draftan span.cm-keyword {
-  line-height: 1em;
-  font-weight: bold;
-  color: #569cd6;
-}
-.cm-s-draftan span.cm-def {
-  color: #9cdcfe;
-}
-.cm-s-draftan span.cm-variable {
-  color: #ddd6a3;
-}
-.cm-s-draftan span.cm-variable-2 {
-  color: #9cdcfe;
-}
-.cm-s-draftan span.cm-variable-3,
-.cm-s-draftan span.cm-type {
-  color: #a9b7c6;
-}
-.cm-s-draftan span.cm-property {
-  color: #9cdcfe;
-}
-.cm-s-draftan span.cm-operator {
-  color: #d4d4d4;
-}
-.cm-s-draftan span.cm-string {
-  color: #ce9178;
-}
-.cm-s-draftan span.cm-string-2 {
-  color: #6a8759;
-}
-.cm-s-draftan span.cm-comment {
-  color: #6a9955;
-}
-.cm-s-draftan span.cm-link {
-  color: #287bde;
-}
-.cm-s-draftan span.cm-atom {
-  color: #569cd6;
-}
-.cm-s-draftan span.cm-error {
-  color: #bc3f3c;
-}
-.cm-s-draftan span.cm-tag {
-  color: #569cd6;
-}
-.cm-s-draftan span.cm-attribute {
-  color: #9cdcfe;
-}
-.cm-s-draftan span.cm-qualifier {
-  color: #d7ba7d;
-}
-.cm-s-draftan span.cm-bracket {
-  color: #808080;
-}
-.cm-s-draftan.CodeMirror {
   background: #1e1e1e;
   color: #e9e9e9;
+}
+.cm-s-draftan span.cm-header {
+  color: #569cd6;
+}
+.cm-s-draftan span.cm-quote {
+  color: #808080;
+}
+.cm-s-draftan span.cm-variable-2,
+.cm-s-draftan span.cm-variable-3,
+.cm-s-draftan span.cm-type { /* list */
+  color: inherit;
+}
+.cm-s-draftan span.cm-comment { /* code block */
+  color: #a77d3c;
+}
+.cm-s-draftan span.cm-hr {
+  color: #6a8759;
+}
+.cm-s-draftan span.cm-link {
+  color: #9cdcfe;
 }
 .cm-s-draftan .CodeMirror-cursor {
   border-left: 1px solid #bebebe;
 }
 .cm-s-draftan div.CodeMirror-selected {
   background: #1e496c;
-}
-.cm-s-draftan .CodeMirror-gutters {
-  background: #252526;
-  border-right: 1px solid grey;
-  color: #606366;
-}
-.cm-s-draftan span.cm-builtin {
-  color: #a9b7c6;
-}
-.cm-s-draftan .CodeMirror-matchingbracket {
-  background-color: #3b514d;
-  color: yellow !important;
-}
-.cm-s-draftan.cm-fat-cursor .CodeMirror-cursor,
-.cm-s-draftan .cm-animate-fat-cursor {
-  background-color: #999999;
-  opacity: 0.8;
 }
