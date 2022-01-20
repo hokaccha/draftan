@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  release_prepare:
+  build:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
@@ -25,4 +25,4 @@ jobs:
             ${{ runner.os }}-yarn-
       - run: yarn --prefer-offline
       - run: yarn run build
-      - run: electron-builder --arm64
+      - run: ./node_modules/.bin/electron-builder --arm64
