@@ -28,6 +28,10 @@ export const Editor: FC = () => {
     },
     [setContent]
   );
+  const editorDidMount = (editor: CodeMirror.Editor) => {
+    editor.focus();
+    editorRef.current = editor;
+  };
   const enabledCounter = useCounterEnabled();
 
   useIpcHandler(editorRef);
@@ -39,7 +43,7 @@ export const Editor: FC = () => {
         value={content}
         onChange={handleUpdateEditor}
         options={options}
-        editorDidMount={(editor) => (editorRef.current = editor)}
+        editorDidMount={editorDidMount}
       ></CodeMirror>
     </div>
   );
