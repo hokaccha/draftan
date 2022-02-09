@@ -17,7 +17,7 @@ I do not distribute binaries because it is too much trouble. You can build local
 
 ```
 $ yarn install
-$ yarn build
+$ yarn dist
 ```
 
 And move the artifact created in the `dist` directory to the application directory.
